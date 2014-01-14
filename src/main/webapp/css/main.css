@@ -1,0 +1,27 @@
+
+#page {
+	width: 80%;
+	height: 70%;
+	margin: 0px auto;
+	padding: 10px;
+	border-left: dashed;
+	border-right: dashed;
+}
+
+#header {
+	width: 80%;
+	height: 20%;
+	margin: 0px auto;
+	padding: 10px;
+	border-left: dashed;
+	border-right: dashed;
+}
+
+#footer {
+	width: 80%;
+	height: 10%;
+	margin: 0px auto;
+	padding: 10px;
+	border-left: dashed;
+	border-right: dashed;
+}

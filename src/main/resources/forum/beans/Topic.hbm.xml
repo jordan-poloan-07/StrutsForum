@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 23, 2013 10:29:25 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="forum.beans.Topic" table="topics" >
+		<id name="t_id" type="java.lang.Integer">
+			<column name="T_ID" />
+			<generator class="identity" />
+		</id>
+		<property generated="never" lazy="false" name="t_cat_id"
+			type="java.lang.Integer">
+			<column name="T_CAT_ID" />
+		</property>
+		<many-to-one class="forum.beans.User" fetch="select" name="user">
+			<column name="USER_ID" />
+		</many-to-one>
+		<property generated="never" lazy="false" name="t_title"
+			type="java.lang.String">
+			<column name="T_TITLE" />
+		</property>
+		<property generated="never" lazy="false" name="t_desc"
+			type="java.lang.String">
+			<column name="T_DESC" />
+		</property>
+		<property generated="never" lazy="false" name="t_date"
+			type="java.util.Date">
+			<column name="T_DATE" />
+		</property>
+		<set name="topicreply" fetch="select" lazy="true" order-by="T_REPLY_DATE"
+			table="topicreply">
+			<key>
+				<column name="T_ID" />
+			</key>
+			<one-to-many class="forum.beans.Reply" />
+		</set>
+	</class>
+</hibernate-mapping>

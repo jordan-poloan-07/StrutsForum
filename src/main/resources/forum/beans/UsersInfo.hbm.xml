@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 2, 2014 10:37:19 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="forum.beans.UsersInfo" table="USERSINFO">
+		<id name="user_id" type="java.lang.Integer">
+			<column name="USER_ID" />
+			<generator class="foreign">
+				<param name="property">user</param>
+			</generator>
+		</id>
+		<property name="dateJoined" type="java.util.Date">
+			<column name="DATEJOINED" />
+		</property>
+		<property name="lastLogin" type="java.util.Date">
+			<column name="LASTLOGIN" />
+		</property>
+		<property name="topicCount" type="java.lang.Integer">
+			<column name="TOPICCOUNT" />
+		</property>
+		<property name="replyCount" type="java.lang.Integer">
+			<column name="REPLYCOUNT" />
+		</property>
+		<property name="profilePic" type="java.lang.String">
+			<column name="PROFILEPIC" />
+		</property>
+		<one-to-one name="user" class="forum.beans.User"
+			constrained="true"></one-to-one>
+	</class>
+</hibernate-mapping>
