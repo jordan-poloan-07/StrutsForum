@@ -13,7 +13,7 @@ tmp/
 local.properties
 .settings/
 .loadpath
-target
+target/
 
 # External tool builders
 .externalToolBuilders/
