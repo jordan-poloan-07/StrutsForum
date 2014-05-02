@@ -1,8 +1,8 @@
 StrutsForum
 ===========
 
-Forum using Struts 2
-
-This "Forum" is fucked up
+- AngularJS will be used as the JS Framework
+- Entity Relationships shall be updated
+- Use struts2-json plugin
 
 
