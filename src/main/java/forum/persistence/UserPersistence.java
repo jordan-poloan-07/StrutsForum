@@ -40,7 +40,7 @@ public class UserPersistence {
 		matchedUser = (User) q.uniqueResult();
 
 		SessionManager.commitTransaction();
-		
+
 		// now change the last login of matched user;
 		// should use trigger instead of this
 

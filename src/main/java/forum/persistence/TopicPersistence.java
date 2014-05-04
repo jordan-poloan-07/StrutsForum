@@ -12,24 +12,16 @@ public class TopicPersistence {
 
 		// TODO add to managedQuery
 
-		List<Topic> topics = null;
-
 		Query q = SessionManager.beginTransaction().createQuery(
 				"from Topic as t where t.t_cat_id=:t_cat_id");
 		q.setParameter("t_cat_id", categoryId);
 
-		topics = q.list();
-
-		SessionManager.commitTransaction();
-
-		return topics;
+		return q.list();
 	}
 
 	public List<Topic> getPaginatedTopics(int categoryId, int startIndex) {
 
 		// TODO add to managedQuery
-
-		List<Topic> paginatedTopics = null;
 
 		Query q = SessionManager.beginTransaction().createQuery(
 				"from Topic as t where t.t_cat_id=:t_cat_id");
@@ -39,9 +31,7 @@ public class TopicPersistence {
 		q.setFirstResult(startIndex);
 		q.setMaxResults(10);
 
-		paginatedTopics = q.list();
-
-		return paginatedTopics;
+		return q.list();
 	}
 
 	public void addTopic(Topic topic) {
@@ -71,17 +61,11 @@ public class TopicPersistence {
 
 		// TODO add to managedQuery
 
-		Topic topic = null;
-
 		Query q = SessionManager.beginTransaction().createQuery(
 				"from Topic as t where t.t_id=:t_id ");
 
 		q.setParameter("t_id", topicId);
 
-		topic = (Topic) q.uniqueResult();
-
-		SessionManager.commitTransaction();
-
-		return topic;
+		return (Topic) q.uniqueResult();
 	}
 }

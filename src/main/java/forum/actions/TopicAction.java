@@ -18,6 +18,7 @@ public class TopicAction extends ActionSupport {
 	public String showReplies() {
 
 		TopicPersistence tp = new TopicPersistence();
+		
 		topic = tp.getTopic(topicId);
 
 		Utility u = new Utility();

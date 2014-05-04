@@ -5,7 +5,8 @@
 	<constant name="struts.mapper.alwaysSelectFullNamespace"
 		value="false" />
 	<constant name="struts.patternMatcher" value="regex" />
-
+	<constant name="struts.devMode" value="true" />
+	
 	<package name="default" extends="json-default" namespace="/public">
 
 		<action name="Login/{method}" class="forum.actions.LoginAction"
@@ -53,7 +54,7 @@
 		<action name="Login/{method}" class="forum.actions.LoginAction"
 			method="{1}">
 			<result name="input">/jsp/accounts/login.jsp</result>
-			<result name="success" type="redirect">/Forum/home</result>
+			<result name="success" type="redirect">/secure/Forum/home</result>
 			<result name="error">/jsp/errors/error.jsp</result>
 		</action>
 
@@ -62,18 +63,18 @@
 			<result>/jsp/forum/{1}.jsp</result>
 		</action>
 
-		<action name="Category/{method}/{param}" class="forum.actions.CategoryAction"
+		<action name="Category/{method}/{categoryId}" class="forum.actions.CategoryAction"
 			method="{1}">
 			<param name="categoryId">{2}</param>
 			<result name="success">/jsp/categories/category.jsp</result>
 		</action>
 
 		<!-- addReply can be used for ajax -->
-		<action name="Topic/{method}/{param}" class="forum.actions.TopicAction"
+		<action name="Topic/{method}/{topicId}" class="forum.actions.TopicAction"
 			method="{1}">
 			<param name="topicId">{2}</param>
 			<result name="success">/jsp/topics/topic.jsp</result>
-			<result name="inputSuccess" type="redirect">/Topic/showReplies/{2}
+			<result name="inputSuccess" type="redirect">/secure/Topic/showReplies/{2}
 			</result>
 			<!-- although below result is useless -->
 			<result name="input">/jsp/replies/addReply.jsp</result>
@@ -104,10 +105,10 @@
 		<action name="replyModifier/{method}/{param}" class="forum.actions.ReplyModifierAction"
 			method="{1}">
 			<param name="param">{2}</param>
-			<result name="inputSuccess" type="redirect">/Topic/showReplies/{2}
+			<result name="inputSuccess" type="redirect">/secure/Topic/showReplies/{2}
 			</result>
 			<result name="editInput">/jsp/replies/editReply.jsp</result>
-			<result name="editSuccess" type="redirect">/Topic/showReplies/{2}
+			<result name="editSuccess" type="redirect">/secure/Topic/showReplies/{2}
 			</result>
 			<result name="deleteSuccess">/jsp/replies/replyDeleted.jsp</result>
 		</action>
@@ -128,7 +129,7 @@
 				<param name="excludeMethods">input,back,cancel,browse</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
-			<result name="success" type="redirect">/Forum/home</result>
+			<result name="success" type="redirect">/secure/Forum/home</result>
 			<result name="error">/jsp/errors/error.jsp</result>
 			<result name="input">/jsp/accounts/editProfile.jsp</result>
 		</action>
