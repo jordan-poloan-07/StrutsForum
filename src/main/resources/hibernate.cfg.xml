@@ -11,12 +11,5 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
-
-		<mapping resource="forum/beans/User.hbm.xml" />
-		<mapping resource="forum/beans/TopicCategory.hbm.xml" />
-		<mapping resource="forum/beans/Topic.hbm.xml" />
-		<mapping resource="forum/beans/Reply.hbm.xml" />
-		<mapping resource="forum/beans/UsersInfo.hbm.xml" />
-
 	</session-factory>
 </hibernate-configuration>
